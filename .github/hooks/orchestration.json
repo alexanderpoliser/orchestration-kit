@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      { "type": "command", "command": "node .orchestration/hooks/hook.js pre-tool-use", "timeout": 15 }
+    ],
+    "PostToolUse": [
+      { "type": "command", "command": "node .orchestration/hooks/hook.js post-tool-use", "timeout": 15 }
+    ],
+    "SubagentStart": [
+      { "type": "command", "command": "node .orchestration/hooks/hook.js subagent-start", "timeout": 15 }
+    ],
+    "SubagentStop": [
+      { "type": "command", "command": "node .orchestration/hooks/hook.js subagent-stop", "timeout": 15 }
+    ]
+  }
+}

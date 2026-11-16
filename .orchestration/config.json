@@ -1,0 +1,60 @@
+{
+  "maxParallelSubagents": 3,
+  "slotTtlSeconds": 1800,
+  "maxAttempts": 2,
+  "taskIdPattern": "TASK-\\d{3}",
+  "implementerAgents": [
+    "implementer"
+  ],
+  "validatorAgents": [
+    "validator"
+  ],
+  "subagentTools": [
+    "runSubagent",
+    "agent",
+    "task"
+  ],
+  "editTools": [
+    "editFiles",
+    "create_file",
+    "replace_string_in_file",
+    "multi_replace_string_in_file",
+    "insert_edit_into_file",
+    "apply_patch",
+    "edit",
+    "write",
+    "create",
+    "str_replace"
+  ],
+  "terminalTools": [
+    "run_in_terminal",
+    "bash",
+    "shell",
+    "powershell"
+  ],
+  "protectedPaths": [
+    ".github/hooks/**",
+    ".orchestration/hooks/**",
+    ".orchestration/cli.js",
+    ".orchestration/config.json",
+    ".orchestration/state.json",
+    "**/.env*",
+    "**/*.pem"
+  ],
+  "alwaysAllowPaths": [
+    ".orchestration/logs/**"
+  ],
+  "blockedCommands": [
+    "git\\s+push\\b.*(--force|--force-with-lease|\\s-f\\b)",
+    "git\\s+push\\b(\\s+-\\S+)*\\s+\\S+\\s+(\\S+:)?(main|master)\\b",
+    "rm\\s+-rf\\s+(/|~|\\*)(\\s|$)",
+    "curl[^|]*\\|\\s*(ba)?sh"
+  ],
+  "strictPaths": false,
+  "failOpen": false,
+  "debug": false,
+  "logAllTools": true,
+  "inlineSkills": true,
+  "maxSkillChars": 6000,
+  "verifyCommand": "npm test"
+}
